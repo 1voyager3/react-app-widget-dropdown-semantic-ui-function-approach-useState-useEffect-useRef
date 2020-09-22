@@ -1,28 +1,35 @@
-import React from "react";
-import Accordion from "./components/Accordion";
+import React, {useState} from "react";
 import 'semantic-ui-css/semantic.min.css';
+import Dropdown from "./components/Dropdown";
 
-const items = [
+
+
+
+const options = [
     {
-        title: "What is react",
-        content: "React is a Front-End Java`script framework"
+        label: 'The Color Red',
+        value: 'red'
     },
     {
-        title: "Why use React",
-        content: "React is favorite JS library among engineers."
+        label: 'The Color Green',
+        value: 'green'
     },
     {
-        title: "How do you use React",
-        content: "You use React by creating components."
+        label: 'The Shade of Blue',
+        value: 'blue'
     }
 ]
 
 export default () => {
+
+    const [selected, setSelected] = useState(options[0])
+
     return (
         <div>
-            <Accordion
-                items={items}
-
+            <Dropdown
+                options={options}
+                selected={selected}
+                onSelectedChange={setSelected}
             />
         </div>
     )
